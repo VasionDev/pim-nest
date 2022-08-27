@@ -7,7 +7,7 @@ import { ConfirmInvitationDto, CreateUserDto, UpdateUserDto, UserProfileDto, Use
 import { User as UserEntity } from "./interface/user.interface";
 import { UserService } from "./user.service";
 
-// @UseGuards(JwtAuthGuard)
+@UseGuards(JwtAuthGuard)
 @ApiTags('user')
 @Controller()
 export class UserController {
