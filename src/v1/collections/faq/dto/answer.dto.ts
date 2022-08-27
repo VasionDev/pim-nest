@@ -6,7 +6,6 @@ export class AnswerDto {
     @ApiProperty()
     @IsString()
     @IsNotEmpty()
-    @IsOptional()
     answer: string
 
     @ApiPropertyOptional()

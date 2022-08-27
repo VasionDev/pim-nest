@@ -18,7 +18,6 @@ export class FaqUpdateDto {
 
     @ApiPropertyOptional()
     @IsArray()
-    @ArrayMinSize(1)
     @ValidateNested()
     @Type(() => AnswerDto)
     @IsOptional()

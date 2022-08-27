@@ -1,5 +1,4 @@
 import * as mongoose from 'mongoose'
-import { Answer } from './answer.schema'
 
 export const faqCategorySchema = new mongoose.Schema({
     name: {
@@ -32,7 +31,19 @@ export const faqSchema = new mongoose.Schema({
         default: ''
     },
     answers: {
-        type: [Answer],
+        type: [{
+            _id: false,
+            answer: {
+                type: String,
+                trim: true,
+                required: true
+            },
+            products: {
+                type: [mongoose.Schema.Types.ObjectId],
+                ref: 'Product',
+                default: []
+            }
+        }],
         default: []
     },
     category: {
