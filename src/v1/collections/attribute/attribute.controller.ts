@@ -1,8 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/v1/auth/guard';
 import { AttributeService } from './attribute.service';
 import { AttributeDto, AttributeUpdateDto } from './dto';
 
+@UseGuards(JwtAuthGuard)
 @ApiTags('attribute')
 @Controller()
 export class AttributeController {

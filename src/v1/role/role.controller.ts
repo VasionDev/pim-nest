@@ -1,8 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from '../auth/guard';
 import { CreateRoleDto } from './dto';
 import { RoleService } from './role.service';
 
+@UseGuards(JwtAuthGuard)
 @ApiTags('role')
 @Controller()
 export class RoleController {

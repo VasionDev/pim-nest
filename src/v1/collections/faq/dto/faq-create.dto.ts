@@ -1,6 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger"
 import { Type } from "class-transformer"
-import { IsArray, IsNotEmpty, IsOptional, IsString, ValidateNested } from "class-validator"
+import { ArrayMinSize, IsArray, IsNotEmpty, IsOptional, IsString, ValidateNested } from "class-validator"
 import { AnswerDto } from "./answer.dto"
 
 export class FaqCreateDto {

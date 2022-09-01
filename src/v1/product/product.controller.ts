@@ -1,8 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from '../auth/guard';
 import { ProductDto } from './dto';
 import { ProductService } from './product.service';
 
+@UseGuards(JwtAuthGuard)
 @ApiTags('product')
 @Controller()
 export class ProductController {

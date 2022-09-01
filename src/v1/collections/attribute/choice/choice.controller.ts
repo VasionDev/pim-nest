@@ -1,8 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/v1/auth/guard';
 import { ChoiceService } from './choice.service';
 import { ChoiceDto, ChoiceUpdateDto } from './dto';
 
+@UseGuards(JwtAuthGuard)
 @ApiTags('choice')
 @Controller()
 export class ChoiceController {

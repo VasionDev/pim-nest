@@ -102,7 +102,7 @@ export class UserService {
 
     async getUser(userId: string): Promise<User> {
         try {
-            const user = await this.userModel.findById(userId).exec()
+            const user = await this.userModel.findById(userId).populate({path: 'role', select: '-_id -__v -users'}).exec()
             if(user != null) {
                 const returnData = {
                     id: user.id,

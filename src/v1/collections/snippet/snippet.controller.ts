@@ -1,8 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/v1/auth/guard';
 import { SnippetCategoryDto, SnippetCreateDto, SnippetUpdateDto } from './dto';
 import { SnippetService } from './snippet.service';
 
+@UseGuards(JwtAuthGuard)
 @ApiTags('text-snippet')
 @Controller()
 export class SnippetController {

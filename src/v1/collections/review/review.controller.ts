@@ -1,8 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/v1/auth/guard';
 import { ReviewDto } from './dto';
 import { ReviewService } from './review.service';
 
+@UseGuards(JwtAuthGuard)
 @ApiTags('review')
 @Controller()
 export class ReviewController {

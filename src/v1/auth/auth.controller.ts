@@ -3,10 +3,8 @@ import { ApiTags } from "@nestjs/swagger";
 import { AuthService } from "./auth.service";
 import { User } from "./decorator";
 import { LoginDto, ManagePasswordDto, ResetDto } from "./dto";
-import { JwtAuthGuard } from "./guard";
-import { JwtRtAuthGuard } from "./guard/jwt-rt-auth.guard";
+import { JwtRtAuthGuard } from "./guard";
 
-@UseGuards(JwtAuthGuard)
 @ApiTags('auth')
 @Controller()
 export class AuthController {

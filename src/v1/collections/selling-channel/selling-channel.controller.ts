@@ -1,8 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/v1/auth/guard';
 import { SellingChannelDto } from './dto';
 import { SellingChannelService } from './selling-channel.service';
 
+@UseGuards(JwtAuthGuard)
 @ApiTags('selling-channel')
 @Controller()
 export class SellingChannelController {

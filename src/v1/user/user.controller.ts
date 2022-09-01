@@ -18,6 +18,11 @@ export class UserController {
         return this.userService.getUsers()
     }
 
+    @Get('info')
+    getUserInfo(@User() user: UserEntity) {
+        return this.userService.getUser(user.id.toString())
+    }
+
     @Post()
     addUser(@Body() createUserDto: CreateUserDto) {
         return this.userService.addUser(createUserDto)

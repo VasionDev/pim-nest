@@ -1,8 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/v1/auth/guard';
 import { FaqCategoryDto, FaqCreateDto, FaqUpdateDto } from './dto';
 import { FaqService } from './faq.service';
 
+@UseGuards(JwtAuthGuard)
 @ApiTags('faq')
 @Controller()
 export class FaqController {
